@@ -1,0 +1,101 @@
+*{
+    margin:0;
+}
+
+.personaje {
+    width:100px;
+    height: 105px;
+    background:url("Robot.png");
+    z-index: 2;
+    position:relative;
+    top:80%;
+}
+.enemigo{
+    width:100px;
+    height: 90px;
+    background-color:black;
+    z-index: 1;
+    position:relative;
+    top:65%;
+    left: 100%;
+    animation: avanzarEnemigo 5s linear infinite;
+    margin:0 !important;
+}
+
+@keyframes avanzarEnemigo{
+    0%{
+        left:100%;
+    }
+    100%{
+        left:-100%;
+    }
+}
+.avanzarEnemigo{
+    animation: avanzarEnemigo 1s linear infinite;
+}
+
+@keyframes correr {
+
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position:-803px ;
+    }
+    
+}
+.correr{
+    animation:correr 1s steps(8) infinite;
+}
+@keyframes caer{
+    0%{
+        top:51%
+    }
+    50%{
+        top:60%;
+    }
+    100%{
+        top:71%;
+    }
+}
+.caer{
+    animation:saltar 1s steps(8) infinite;
+}
+
+@keyframes saltar{
+
+    0%{
+        top:71%;
+    }
+    50%{
+        top:61%;
+    }
+    100%{
+        top:71%;
+    }
+
+}
+.saltar{
+    animation: saltar 800ms cubic-bezier(0,0,.5,1) forwards;
+}
+
+.fondo{
+    width: 100%;
+    height: 100%;
+    background: url("paisaje-urbano-con-el-parque-y-el-cielo-de-fondo-la-ciudad-diseno-ilustracion-con-main-street-y-nubes-de-la-calle-con-el-paisaje-de-la-ciudad-pk930j.jpg");
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    z-index: -1;
+    animation: city 10s linear infinite;
+    position: absolute;
+}
+
+@keyframes city {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -1300px;
+    }
+}
