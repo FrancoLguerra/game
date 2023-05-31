@@ -14,7 +14,7 @@
 
     z-index: 1;
     position:relative;
-    top:65%;
+    top:68%;
     left: 100%;
     animation: avanzarEnemigo 3s linear infinite;
     margin:0 !important;
@@ -22,12 +22,20 @@
 .enemigoDos{
     width:100px;
     height: 80px;
-    background-color:rgb(241, 21, 21);
+    background:url("tacho.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    background-position: center;
 }
 .enemigo{
     width:100px;
     height: 90px;
-    background-color:black;
+    background:url("tacho-verde.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: transparent;
+    background-position: center;
 }
 
 @keyframes avanzarEnemigo{
