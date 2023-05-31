@@ -86,14 +86,25 @@ function generarBonus(){
     bonus.innerHTML = "";
     fondo.appendChild(bonus);
 }
-
+function timer(){
+    let time = 90;
+    let timer = document.getElementById("timer");
+    let interval = setInterval(function(){
+        timer.innerHTML = time;
+        time--;
+        if(time < 0){
+            clearInterval(interval);
+            gameOver();
+        }
+    }, 1000);
+}
 
 
 setInterval(function(){
     generarEnemigos();
     setInterval(checkCollision, 50);
     enemigo.removeChild(enemigo.firstChild);
-},3050);
+},6050);
 
 setInterval(function(){
     generarBonus();
@@ -111,6 +122,8 @@ function discountHealth(){
        gameOver();
     }
 };
+timer();
+
 
 function gameOver(){
    //detengo todas las animaciones y elimino los enemigos
@@ -128,13 +141,14 @@ function gameOver(){
     let gameOver = document.createElement("div");
     gameOver.classList.add("gameOver");
     gameOver.id = "gameOver";
-    gameOver.innerHTML = "GAME OVER" +"Tu puntaje es: " + puntaje ;
+    gameOver.innerHTML = 'GAME OVER <br>' + 'Puntaje: ' + puntaje + '<br>'+'<p><button class="btn" onclick="location.reload()">Reiniciar</button></p>' ;
     fondo.appendChild(gameOver);
     
-
-
-
 }
+
+//funcion que muestra el tiempo y lo va decrementando
+
+
 
 
 

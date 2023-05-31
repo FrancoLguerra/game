@@ -16,7 +16,7 @@
     position:relative;
     top:68%;
     left: 100%;
-    animation: avanzarEnemigo 3s linear infinite;
+    animation: avanzarEnemigo 6s linear infinite;
     margin:0 !important;
 }
 .enemigoDos{
@@ -47,7 +47,7 @@
     }
 }
 .avanzarEnemigo{
-    animation: avanzarEnemigo 3s linear infinite;
+    animation: avanzarEnemigo 6s linear infinite;
 }
 .bonus{
     width:50px;
@@ -62,7 +62,7 @@
     top:40%;
     left: 100%;
     margin:0 !important;
-    animation: avanzarEnemigo 3s linear infinite;
+    animation: avanzarEnemigo 6s linear infinite;
 }
 .score{
     position: absolute;
@@ -178,7 +178,24 @@
     align-items: center;
  
 }
-
+.btn{
+    width: 200px;
+    height: 50px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#timer{
+    position:absolute;
+    top:3%;
+    left:50%;
+    font-size: 30px;
+    color:black;
+}
 .none{
     display:none;
 }
