@@ -37,14 +37,16 @@ function checkCollision() {
             if(enemigo.firstChild.classList.contains("enemigo")){
                
                 console.log("enemigo comun");
+                discountHealth();
 
             }
             else if(enemigo.firstChild.classList.contains("enemigoDos")){
                 console.log("enemigo rojo");
+                discountHealth();
+
             }
             
-            puntaje -= 10;
-            score.innerHTML = puntaje;
+           
         }
 }
 
@@ -100,9 +102,39 @@ setInterval(function(){
 }, 10000);
 
 let barra = document.getElementById("health");
-setInterval(function(){
-    removeChild(barra.lastChild);
-}, 10000);
+function discountHealth(){
+
+    if(!barra.childElementCount <= 0){
+   barra.removeChild(barra.lastChild);
+    console.log(barra);}
+    else{
+       gameOver();
+    }
+};
+
+function gameOver(){
+   //detengo todas las animaciones y elimino los enemigos
+    personaje.classList.remove("correr");
+    personaje.classList.remove("saltar");
+  
+
+    //elimino el personaje
+    personaje.remove();
+    personaje.removeEventListener("animationend", () => {});
+    //elimino los bonus
+    document.getElementById("bonus").remove();
+    enemigo.classList.remove("enemigo");
+    enemigo.classList.add("none")
+    let gameOver = document.createElement("div");
+    gameOver.classList.add("gameOver");
+    gameOver.id = "gameOver";
+    gameOver.innerHTML = "GAME OVER" +"Tu puntaje es: " + puntaje ;
+    fondo.appendChild(gameOver);
+    
+
+
+
+}
 
 
 
