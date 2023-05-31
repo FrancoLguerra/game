@@ -25,15 +25,14 @@ let enemigo = document.getElementById("enemigoPadre");
 
 function checkCollision() {
    
-    const rect2 = personaje.getBoundingClientRect();
-    const rect1 = enemigo.getBoundingClientRect();
-    //document.getElementById('display').innerHTML = '';
-    // Verificar si hay colisión
+    const rect1 = personaje.getBoundingClientRect();
+    const rect2 = enemigo.firstChild.getBoundingClientRect();
+
     console.log("verificando colision")
-    if (!(rect1.right < (rect2.left  ||
-        rect1.left > (rect2.right-50) ||
-        rect1.bottom < (rect2.top-50)||
-        rect1.top > rect2.bottom))) {
+    if (!((rect1.right-50) < (rect2.left -50)  ||
+        (rect1.left-50) > (rect2.right) ||
+        (rect1.bottom-50) < (rect2.top)||
+        (rect1.top-50) > (rect2.bottom))){
         
             if(enemigo.firstChild.classList.contains("enemigo")){
                
@@ -43,15 +42,15 @@ function checkCollision() {
             else if(enemigo.firstChild.classList.contains("enemigoDos")){
                 console.log("enemigo rojo");
             }
-        puntaje -= 10;
-        score.innerHTML = puntaje;
-        
-    }
+            
+            puntaje -= 10;
+            score.innerHTML = puntaje;
+        }
 }
 
 function checkColisionBonus(){
-    const rect1 = personaje.getBoundingClientRect();
-    const rect2 = document.getElementById("bonus").getBoundingClientRect();
+    const rect2 = personaje.getBoundingClientRect();
+    const rect1 = document.getElementById("bonus").getBoundingClientRect();
     if (!(rect1.right < rect2.left ||
     rect1.left > rect2.right ||
     rect1.bottom < rect2.top||
@@ -87,17 +86,23 @@ function generarBonus(){
 }
 
 
-setInterval(generarEnemigos, 3000);
+
 setInterval(function(){
-    enemigo.removeChild(enemigo.firstChild);},3050);
+    generarEnemigos();
     setInterval(checkCollision, 50);
+    enemigo.removeChild(enemigo.firstChild);
+},3050);
 
 setInterval(function(){
     generarBonus();
-    setInterval(checkColisionBonus, 500);
+    setInterval(checkColisionBonus, 50);
     document.getElementById("bonus").remove();
-}, 3000)
-;
+}, 10000);
+
+let barra = document.getElementById("health");
+setInterval(function(){
+    removeChild(barra.lastChild);
+}, 10000);
 
 
 

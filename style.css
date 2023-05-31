@@ -119,6 +119,27 @@
     animation: city 10s linear infinite;
     position: absolute;
 }
+.health{
+    width: 100px;
+    height: 20px;   
+    background-color: white;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    z-index: 3;
+    margin: 10px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    
+
+}
+.vida{
+    width:20px;
+    height: 19px;
+    background-color: red;
+    border: 1px solid black;
+}
 
 @keyframes city {
     0% {
